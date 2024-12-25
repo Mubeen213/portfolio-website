@@ -19,7 +19,6 @@ export const skillsData: Record<string, string[]> = {
   tools: [
     'Git',
     'AWS',
-    'Docker',
     'PostgreSQL',
     'DynamoDB',
     'REST APIs',

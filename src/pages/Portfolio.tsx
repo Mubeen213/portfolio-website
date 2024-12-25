@@ -9,8 +9,8 @@ export const Portfolio = () => {
     <div className='min-h-screen bg-gray-50'>
       <Hero />
       <Skills />
-      {/* <Experience />
-      <Projects />
+      <Experience />
+      {/* <Projects />
       <Education /> */}
     </div>
   )

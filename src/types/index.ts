@@ -1,5 +1,6 @@
 export interface Experience {
   company: string
+  location: string
   role: string
   period: string
   points: string[]
