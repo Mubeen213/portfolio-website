@@ -7,16 +7,18 @@ export interface Experience {
 }
 
 export interface Project {
+  id: string
   title: string
   description: string
-  image: string
-  link: string
-  github?: string
   tech: string[]
+  image?: string
+  link?: string
+  github?: string
+  category: 'frontend' | 'backend' | 'fullstack'
 }
 
 export interface Skill {
-  category: string
-  items: string[]
-  icon: string
+  name: string
+  icon?: string
+  category: 'core' | 'frontend' | 'backend'
 }
