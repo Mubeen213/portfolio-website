@@ -12,10 +12,10 @@ export interface Project {
   title: string
   description: string
   tech: string[]
-  image?: string
+  features: string[]
   link?: string
   github?: string
-  category: 'frontend' | 'backend' | 'fullstack'
+  image?: string
 }
 
 export interface Skill {
