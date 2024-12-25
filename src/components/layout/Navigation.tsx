@@ -1,8 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
     { name: 'About', href: '#about' },
@@ -13,22 +22,24 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className='fixed w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm'>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 bg-slate-900/95 backdrop-blur-md shadow-lg`}
+    >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
-          {/* Logo */}
           <div className='flex-shrink-0'>
-            <span className='text-xl font-bold text-blue-600'>Mubeen</span>
+            <span className='text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent'>
+              Mubeen
+            </span>
           </div>
 
-          {/* Desktop Navigation */}
           <div className='hidden md:block'>
             <div className='ml-10 flex items-baseline space-x-4'>
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className='px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors'
+                  className='px-3 py-2 rounded-md text-sm font-medium text-blue-100 hover:text-white hover:bg-white/10 transition-colors'
                 >
                   {item.name}
                 </a>
@@ -36,26 +47,25 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className='md:hidden'>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className='inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 focus:outline-none'
+              className='inline-flex items-center justify-center p-2 rounded-md text-blue-100 hover:text-white hover:bg-white/10 transition-colors'
+              aria-label='Toggle menu'
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
-          <div className='md:hidden'>
-            <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
+          <div className='md:hidden absolute inset-x-0 top-16 bg-slate-900/95 backdrop-blur-md shadow-lg border-t border-white/10'>
+            <div className='px-2 pt-2 pb-3 space-y-1'>
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 transition-colors'
+                  className='block px-3 py-2 rounded-md text-base font-medium text-blue-100 hover:text-white hover:bg-white/10 transition-colors'
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
