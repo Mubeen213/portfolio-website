@@ -1,23 +1,29 @@
 export const skillsData: Record<string, string[]> = {
-  core: [
+  languages: [
     'Java',
     'TypeScript',
     'JavaScript',
     'Python',
     'SQL',
+    'HTML',
+    'CSS',
   ],
-  frontend: [
+  frameworks: [
     'React',
-    'Next.js',
-    'TailwindCSS',
-    'Redux',
-    'GraphQL',
-  ],
-  backend: [
     'Spring Boot',
+    'Next.js',
     'Node.js',
+    'TailwindCSS',
+    'Express.js',
+  ],
+  tools: [
+    'Git',
     'AWS',
     'Docker',
     'PostgreSQL',
+    'DynamoDB',
+    'REST APIs',
+    'GraphQL',
+    'Postman',
   ],
-};
+}
