@@ -3,18 +3,46 @@ import { Menu, X } from 'lucide-react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const headerHeight = 64
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault()
+    const element = document.querySelector(href)
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.scrollY - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+    setIsOpen(false)
+  }
 
   const navItems = [
-    { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
   ]
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 bg-slate-900/95 backdrop-blur-md shadow-lg`}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-slate-900/95 shadow-lg' : 'bg-transparent'
+      } backdrop-blur-md`}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
@@ -30,6 +58,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleClick(e, item.href)}
                   className='px-3 py-2 rounded-md text-sm font-medium text-blue-100 hover:text-white hover:bg-white/10 transition-colors'
                 >
                   {item.name}
@@ -56,8 +85,8 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleClick(e, item.href)}
                   className='block px-3 py-2 rounded-md text-base font-medium text-blue-100 hover:text-white hover:bg-white/10 transition-colors'
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </a>

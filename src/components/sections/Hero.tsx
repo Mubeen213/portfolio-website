@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
 
             {/* Call to Action */}
-            <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
+            {/* <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
               <a
                 href='#projects'
                 className='px-8 py-3 rounded-full bg-blue-600/90 hover:bg-blue-600 
@@ -85,7 +85,7 @@ const Hero = () => {
               >
                 Contact Me
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export const Portfolio = () => {
       <Skills />
       <Experience />
       <Projects />
-      {/* <Education /> */}
+      <Education />
     </div>
   )
 }

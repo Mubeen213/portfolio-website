@@ -6,10 +6,10 @@ export const Layout = () => {
   return (
     <div className='min-h-screen flex flex-col'>
       <Navigation />
-      <main className='flex-grow pt-16'>
+      <main className='flex-grow'>
         <Outlet />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

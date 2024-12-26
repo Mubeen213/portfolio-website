@@ -23,3 +23,13 @@ export interface Skill {
   icon?: string
   category: 'core' | 'frontend' | 'backend'
 }
+
+export interface Education {
+  id: string
+  school: string
+  degree: string
+  period: string
+  location: string
+  description?: string
+  achievements?: string[]
+}

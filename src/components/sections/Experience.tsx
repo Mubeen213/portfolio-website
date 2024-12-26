@@ -3,7 +3,10 @@ import { experiences } from '../../data/experiences'
 
 const Experience = () => {
   return (
-    <section className='py-20 bg-gradient-to-b from-purple-900 to-slate-900 text-white'>
+    <section
+      id='experience'
+      className='py-10 bg-gradient-to-b from-purple-900 to-slate-900 text-white'
+    >
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-3xl font-bold mb-12 flex items-center'>
           <Briefcase className='mr-2' />

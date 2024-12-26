@@ -3,7 +3,10 @@ import { skillsData } from '../../data/skillsData'
 
 const Skills = () => {
   return (
-    <section className='py-20 bg-gradient-to-b from-slate-900 to-purple-900 text-white'>
+    <section
+      id='skills'
+      className='py-10 bg-gradient-to-b from-slate-900 to-purple-900 text-white'
+    >
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <h2 className='text-3xl font-bold mb-12 flex items-center'>
           <Code className='mr-2' />
