@@ -9,7 +9,7 @@ export const educationData: Education[] = [
   },
   {
     id: '2',
-    school: 'Quli Qutnb Shah Government Polytechnic',
+    school: 'Quli Qutb Shah Government Polytechnic',
     degree: 'Diploma in Electronics and Communication',
     period: 'July 2016 – May 2019',
     location: 'Hyderabad, Telangana, India',
