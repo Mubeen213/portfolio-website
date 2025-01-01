@@ -14,6 +14,8 @@ export const projects: Project[] = [
       'PostgreSQL',
       'TypeScript',
       'Tailwind CSS',
+      'Firebase',
+      'Google OAuth',
     ],
     link: 'https://nikahhub.org',
     features: [
