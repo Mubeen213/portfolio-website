@@ -4,6 +4,8 @@ export const skillsData: Record<string, string[]> = {
   tools: [
     'Git',
     'AWS',
+    'Firebase',
+    'Google OAuth',
     'PostgreSQL',
     'DynamoDB',
     'REST APIs',
